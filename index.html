@@ -200,22 +200,14 @@
             display: block;
         }
 
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(4rem, 12vw, 9rem);
-            font-weight: 700;
-            color: white;
-            line-height: 0.95;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
+        .hero-logo {
+            margin-bottom: 2.5rem;
         }
 
-        .hero-title span {
-            display: block;
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero-logo svg {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
         }
 
         .hero-subtitle {
@@ -1056,10 +1048,21 @@
     <section class="hero">
         <div class="hero-gradient"></div>
         <div class="hero-content">
-            <span class="hero-label animate-on-scroll">The Smart Studio</span>
-            <h1 class="hero-title animate-on-scroll">
-                ZOOPA<br><span>STUDIO</span>
-            </h1>
+            <div class="hero-logo animate-on-scroll">
+                <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="max-width: 600px; width: 100%; height: auto;">
+                    <!-- ZOOPA text -->
+                    <text x="300" y="100" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="120" font-weight="700" fill="white" letter-spacing="-2">ZOOPA</text>
+                    <!-- smart agency text -->
+                    <text x="300" y="160" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="36" font-weight="500" letter-spacing="12" fill="url(#gradient)">SMART AGENCY</text>
+                    <!-- Gradient definition -->
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#E94560"/>
+                            <stop offset="100%" style="stop-color:#D4AF37"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
             <p class="hero-subtitle animate-on-scroll">
                 Flexibilitat, rapidesa i excel·lència. Disseny gràfic i producció multiformat amb rigor lingüístic per a institucions i administracions públiques.
             </p>
