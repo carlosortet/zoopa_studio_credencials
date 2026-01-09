@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOOPA STUDIO | The Smart Studio</title>
+    <meta name="description" content="Zoopa Studio - The Smart Studio: flexibilitat, rapidesa i excel·lència en disseny gràfic i producció multiformat amb rigor lingüístic per a institucions públiques.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1A1A2E;
+            --color-primary-light: #16213E;
+            --color-accent: #E94560;
+            --color-accent-light: #FF6B6B;
+            --color-gold: #D4AF37;
+            --color-cream: #FAFAFA;
+            --color-cream-dark: #F0F0F0;
+            --color-dark: #0F0F1A;
+            --color-text: #1A1A1A;
+            --color-text-light: #4A4A4A;
+            --color-text-muted: #7A7A7A;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-cream);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            opacity: 0.8;
+        }
+
+        .nav-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: white;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections Base */
+        section {
+            padding: 6rem 3rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Section Headers */
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title--light {
+            color: white;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--color-text-light);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .section-description--light {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+            background: var(--color-dark);
+        }
+
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(22, 33, 62, 0.8) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1000px;
+        }
+
+        .hero-label {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 12vw, 9rem);
+            font-weight: 700;
+            color: white;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            display: block;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Intro Section */
+        .intro {
+            background: var(--color-cream);
+            padding: 8rem 3rem;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text p {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .intro-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .intro-feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .intro-feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .intro-feature-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .intro-feature-text p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--color-dark);
+            padding: 8rem 3rem;
+        }
+
+        .projects-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s var(--transition-smooth);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(233, 69, 96, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 15, 26, 0.9) 0%, transparent 60%);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .project-stat {
+            text-align: left;
+        }
+
+        .project-stat-number {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .project-stat-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 8px;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        .project-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Capacitats Section */
+        .capacitats {
+            background: var(--color-cream);
+            padding: 8rem 3rem;
+        }
+
+        .capacitats-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .capacitats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .capacitat-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s var(--transition-smooth);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .capacitat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .capacitat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .capacitat-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .capacitat-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .capacitat-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Metodologia Section */
+        .metodologia {
+            background: var(--color-primary);
+            padding: 8rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metodologia::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at 100% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 60%);
+        }
+
+        .metodologia-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metodologia-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metodologia-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .metodologia-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .metodologia-card-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .metodologia-card-icon svg {
+            width: 26px;
+            height: 26px;
+            color: white;
+        }
+
+        .metodologia-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .metodologia-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Qualitat Linguistica */
+        .qualitat-linguistica {
+            background: var(--color-cream);
+            padding: 8rem 3rem;
+        }
+
+        .qualitat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .qualitat-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .qualitat-content > p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .qualitat-list {
+            list-style: none;
+        }
+
+        .qualitat-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .qualitat-list li:last-child {
+            border-bottom: none;
+        }
+
+        .qualitat-check {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .qualitat-check svg {
+            width: 16px;
+            height: 16px;
+            color: white;
+        }
+
+        .qualitat-list li span {
+            font-size: 1rem;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .qualitat-list li strong {
+            color: var(--color-primary);
+        }
+
+        .qualitat-visual {
+            position: relative;
+        }
+
+        .qualitat-box {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .qualitat-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .proces-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .proces-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--color-accent), var(--color-gold));
+        }
+
+        .proces-step {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .proces-step:last-child {
+            padding-bottom: 0;
+        }
+
+        .proces-step::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        .proces-step h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .proces-step p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Validacio Section */
+        .validacio {
+            background: var(--color-cream-dark);
+            padding: 8rem 3rem;
+        }
+
+        .validacio-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .validacio-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .validacio-step {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .validacio-step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .validacio-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .validacio-step p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        .validacio-step-role {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Equip Section */
+        .equip {
+            background: var(--color-dark);
+            padding: 8rem 3rem;
+        }
+
+        .equip-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .equip-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .equip-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .equip-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-5px);
+        }
+
+        .equip-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-gold) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .equip-icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        .equip-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .equip-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        /* Garantia Box */
+        .garantia {
+            background: var(--color-cream);
+            padding: 6rem 3rem;
+        }
+
+        .garantia-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .garantia-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(233, 69, 96, 0.2) 0%, transparent 60%);
+        }
+
+        .garantia-box h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .garantia-box p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-dark);
+            padding: 4rem 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            opacity: 0.9;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--color-accent-light);
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .intro-grid,
+            .qualitat-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .projects-grid,
+            .capacitats-grid,
+            .metodologia-grid,
+            .equip-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .validacio-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .projects-grid,
+            .capacitats-grid,
+            .metodologia-grid,
+            .equip-grid,
+            .validacio-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .garantia-box {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">
+            <img src="assets/logos/logo-zoopa-footer.jpg" alt="Zoopa Studio">
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#projectes">Projectes</a></li>
+            <li><a href="#capacitats">Capacitats</a></li>
+            <li><a href="#metodologia">Metodologia</a></li>
+            <li><a href="#qualitat">Qualitat</a></li>
+            <li><a href="#equip">Equip</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <span class="hero-label animate-on-scroll">The Smart Studio</span>
+            <h1 class="hero-title animate-on-scroll">
+                ZOOPA<br><span>STUDIO</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">
+                Flexibilitat, rapidesa i excel·lència. Disseny gràfic i producció multiformat amb rigor lingüístic per a institucions i administracions públiques.
+            </p>
+            <div class="hero-stats animate-on-scroll">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">+300</div>
+                    <div class="hero-stat-label">Adaptacions</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">48h</div>
+                    <div class="hero-stat-label">Resposta urgent</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4</div>
+                    <div class="hero-stat-label">Fases validació</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">100%</div>
+                    <div class="hero-stat-label">Rigor IEC</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text animate-on-scroll">
+                    <span class="section-label">The Smart Studio</span>
+                    <h2>Intel·ligència aplicada a la comunicació visual</h2>
+                    <p>Ser <strong>smart</strong> significa treballar amb agilitat sense sacrificar la qualitat. A Zoopa Studio hem dissenyat processos que garanteixen <strong>flexibilitat operativa</strong>, <strong>gestió avançada de la informació</strong> i <strong>excel·lència en l'execució</strong> —tant gràfica com lingüística.</p>
+                    <p>El nostre sistema de treball permet adaptar cada peça a múltiples formats i canals mantenint la coherència visual i el rigor idiomàtic que exigeix la comunicació institucional. Des del briefing fins al lliurament final, cada fase està documentada, validada i optimitzada per respondre amb rapidesa i precisió.</p>
+                </div>
+                <div class="intro-features animate-on-scroll">
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <div class="intro-feature-text">
+                            <h4>Flexibilitat</h4>
+                            <p>Adaptació immediata a canvis i urgències</p>
+                        </div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <div class="intro-feature-text">
+                            <h4>Rapidesa</h4>
+                            <p>Primera proposta en 5 dies, urgències en 48h</p>
+                        </div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <div class="intro-feature-text">
+                            <h4>Gestió avançada</h4>
+                            <p>Control de versions i traçabilitat total</p>
+                        </div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        </div>
+                        <div class="intro-feature-text">
+                            <h4>Excel·lència</h4>
+                            <p>Qualitat gràfica i lingüística certificada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projectes">
+        <div class="container">
+            <div class="projects-header">
+                <span class="section-label" style="color: var(--color-accent);">Portafolis</span>
+                <h2 class="section-title section-title--light animate-on-scroll">Casos d'èxit</h2>
+                <p class="section-description section-description--light animate-on-scroll" style="margin: 0 auto;">Projectes que demostren la nostra capacitat d'adaptació a diferents sectors i necessitats comunicatives.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- PAW -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">
+                        <img src="assets/images/paw-preview.webp" alt="PortAventura World">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Turisme i entreteniment</span>
+                        <h3 class="project-title">PortAventura World</h3>
+                        <p class="project-description">Estratègia de continguts B2B i B2C, campanyes de xarxes socials i producció audiovisual per al resort líder del sud d'Europa.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-number">+50</div>
+                                <div class="project-stat-label">Formats</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-number">2</div>
+                                <div class="project-stat-label">Vídeos</div>
+                            </div>
+                        </div>
+                        <a href="https://credencials-paw.pages.dev/" target="_blank" class="project-link">
+                            Veure projecte
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- FEDA -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">
+                        <img src="assets/images/feda-preview.jpg" alt="FEDA Llum Verda">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Energia i sostenibilitat</span>
+                        <h3 class="project-title">FEDA Llum Verda</h3>
+                        <p class="project-description">Campanya integral per a la companyia elèctrica d'Andorra: identitat visual, facturació, exterior, TV i digital.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-number">82</div>
+                                <div class="project-stat-label">Formats</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-number">6</div>
+                                <div class="project-stat-label">Mitjans</div>
+                            </div>
+                        </div>
+                        <a href="https://feda-credenciales-zoopa.pages.dev/" target="_blank" class="project-link">
+                            Veure projecte
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- VIENA -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">
+                        <img src="assets/images/viena-preview.webp" alt="Viena">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Restauració</span>
+                        <h3 class="project-title">Viena</h3>
+                        <p class="project-description">Producció audiovisual i disseny gràfic per a la cadena de restauració líder a Catalunya: productes, cartes i campanyes.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-number">+90</div>
+                                <div class="project-stat-label">Formats</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-number">42</div>
+                                <div class="project-stat-label">Vídeos</div>
+                            </div>
+                        </div>
+                        <a href="https://zoopa-viena-credencial.pages.dev/" target="_blank" class="project-link">
+                            Veure projecte
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Torre Barrina -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">
+                        <img src="assets/images/torre-barrina-preview.jpg" alt="Torre Barrina">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Cultura i administració pública</span>
+                        <h3 class="project-title">Torre Barrina</h3>
+                        <p class="project-description">Identitat visual i sistema de senyalètica per al centre municipal de creació multimèdia de L'Hospitalet de Llobregat.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-number">+120</div>
+                                <div class="project-stat-label">Adaptacions</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-number">18</div>
+                                <div class="project-stat-label">Formats</div>
+                            </div>
+                        </div>
+                        <a href="https://torre-barrina-credenciales-zoopa.pages.dev/" target="_blank" class="project-link">
+                            Veure projecte
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capacitats Section -->
+    <section class="capacitats" id="capacitats">
+        <div class="container">
+            <div class="capacitats-header">
+                <span class="section-label">Serveis</span>
+                <h2 class="section-title animate-on-scroll">Capacitats tècniques</h2>
+                <p class="section-description animate-on-scroll" style="margin: 0 auto;">Oferim un servei integral que cobreix totes les fases de la producció gràfica i audiovisual.</p>
+            </div>
+            <div class="capacitats-grid">
+                <div class="capacitat-card animate-on-scroll">
+                    <div class="capacitat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Disseny gràfic</h3>
+                    <p>Creació de peces impreses i digitals amb coherència visual i institucional: cartelleria, fullets, banners, presentacions.</p>
+                </div>
+                <div class="capacitat-card animate-on-scroll">
+                    <div class="capacitat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Producció audiovisual</h3>
+                    <p>Vídeos corporatius, spots, motion graphics, Stories, Reels i continguts per a xarxes socials amb subtitulació professional.</p>
+                </div>
+                <div class="capacitat-card animate-on-scroll">
+                    <div class="capacitat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                    </div>
+                    <h3>Senyalètica</h3>
+                    <p>Sistemes de wayfinding, senyalització interior i exterior, rètols, directoris i aplicacions per a espais públics.</p>
+                </div>
+                <div class="capacitat-card animate-on-scroll">
+                    <div class="capacitat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Digital i RRSS</h3>
+                    <p>Creativitats per a Meta, Google, TikTok, LinkedIn. Newsletters, emailings i continguts per a pantalles digitals.</p>
+                </div>
+                <div class="capacitat-card animate-on-scroll">
+                    <div class="capacitat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h3>Identitat corporativa</h3>
+                    <p>Creació i adaptació de manuals d'identitat, papereria, plantilles i sistemes visuals coherents.</p>
+                </div>
+                <div class="capacitat-card animate-on-scroll">
+                    <div class="capacitat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <h3>Materials impresos</h3>
+                    <p>Fullets, catàlegs, programes, invitacions, roll-ups, photocalls i tot tipus de materials per a esdeveniments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodologia Section -->
+    <section class="metodologia" id="metodologia">
+        <div class="container">
+            <div class="metodologia-header">
+                <span class="section-label" style="color: var(--color-accent);">Com treballem</span>
+                <h2 class="section-title section-title--light animate-on-scroll">Metodologia i tecnologia</h2>
+                <p class="section-description section-description--light animate-on-scroll" style="margin: 0 auto;">Processos optimitzats per garantir qualitat, eficiència i comunicació fluida amb el client.</p>
+            </div>
+            <div class="metodologia-grid">
+                <div class="metodologia-card animate-on-scroll">
+                    <div class="metodologia-card-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                    </div>
+                    <h3>Gestió centralitzada</h3>
+                    <p>Plataforma de gestió de projectes amb seguiment en temps real, control de versions i històric de canvis accessible pel client.</p>
+                </div>
+                <div class="metodologia-card animate-on-scroll">
+                    <div class="metodologia-card-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                    </div>
+                    <h3>Eines professionals</h3>
+                    <p>Suite Adobe Creative Cloud, After Effects, Premiere Pro, Figma i eines especialitzades per a cada tipus de producció.</p>
+                </div>
+                <div class="metodologia-card animate-on-scroll">
+                    <div class="metodologia-card-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Terminis garantits</h3>
+                    <p>Primera proposta en 5 dies laborables, revisions en 48h i capacitat d'atenció urgent amb compromís de qualitat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualitat Linguistica Section -->
+    <section class="qualitat-linguistica" id="qualitat">
+        <div class="container">
+            <div class="qualitat-grid">
+                <div class="qualitat-content animate-on-scroll">
+                    <span class="section-label">Compromís amb la llengua</span>
+                    <h2>Qualitat lingüística garantida</h2>
+                    <p>Tots els nostres projectes passen per un rigorós procés de revisió lingüística que garanteix la correcció i adequació dels textos en català.</p>
+                    <ul class="qualitat-list">
+                        <li>
+                            <div class="qualitat-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                            <span><strong>Normativa IEC</strong> — Seguim les directrius de l'Institut d'Estudis Catalans per garantir la correcció ortogràfica i gramatical</span>
+                        </li>
+                        <li>
+                            <div class="qualitat-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                            <span><strong>Terminologia TERMCAT</strong> — Consulta sistemàtica del Centre de Terminologia per a termes tècnics i neologismes</span>
+                        </li>
+                        <li>
+                            <div class="qualitat-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                            <span><strong>Revisió professional</strong> — Lingüistes titulats de la UB/UAB amb experiència en comunicació institucional</span>
+                        </li>
+                        <li>
+                            <div class="qualitat-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                            <span><strong>Eines digitals</strong> — LanguageTool Pro i DIEC2 per a verificació automàtica complementària</span>
+                        </li>
+                        <li>
+                            <div class="qualitat-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                            <span><strong>Subtitulació i locució</strong> — Transcripció i subtitulació professional de tots els continguts audiovisuals</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="qualitat-visual animate-on-scroll">
+                    <div class="qualitat-box">
+                        <h3>Procés de revisió lingüística</h3>
+                        <div class="proces-timeline">
+                            <div class="proces-step">
+                                <h4>1. Redacció inicial</h4>
+                                <p>Creació de textos seguint el to i l'estil del client amb atenció a la terminologia sectorial.</p>
+                            </div>
+                            <div class="proces-step">
+                                <h4>2. Revisió ortotipogràfica</h4>
+                                <p>Correcció d'ortografia, gramàtica, puntuació i coherència estilística.</p>
+                            </div>
+                            <div class="proces-step">
+                                <h4>3. Verificació terminològica</h4>
+                                <p>Consulta TERMCAT i fonts oficials per a termes tècnics i institucionals.</p>
+                            </div>
+                            <div class="proces-step">
+                                <h4>4. Validació final</h4>
+                                <p>Revisió creuada per un segon lingüista abans del lliurament al client.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validacio Section -->
+    <section class="validacio">
+        <div class="container">
+            <div class="validacio-header">
+                <span class="section-label">Control de qualitat</span>
+                <h2 class="section-title animate-on-scroll">Sistema de validació</h2>
+                <p class="section-description animate-on-scroll" style="margin: 0 auto;">Quatre fases de control per assegurar que cada lliurament compleix els estàndards de qualitat.</p>
+            </div>
+            <div class="validacio-steps">
+                <div class="validacio-step animate-on-scroll">
+                    <div class="validacio-step-number">1</div>
+                    <h3>Revisió creativa</h3>
+                    <p>Verificació del concepte, coherència visual i adequació al briefing i manual d'identitat.</p>
+                    <div class="validacio-step-role">Director creatiu · 24h</div>
+                </div>
+                <div class="validacio-step animate-on-scroll">
+                    <div class="validacio-step-number">2</div>
+                    <h3>Control tècnic</h3>
+                    <p>Comprovació de formats, resolucions, colors CMYK/RGB i preparació per a cada canal.</p>
+                    <div class="validacio-step-role">Producció · 12h</div>
+                </div>
+                <div class="validacio-step animate-on-scroll">
+                    <div class="validacio-step-number">3</div>
+                    <h3>Revisió lingüística</h3>
+                    <p>Correcció ortogràfica, gramatical i terminològica per lingüista professional.</p>
+                    <div class="validacio-step-role">Lingüista · 24h</div>
+                </div>
+                <div class="validacio-step animate-on-scroll">
+                    <div class="validacio-step-number">4</div>
+                    <h3>Aprovació final</h3>
+                    <p>Validació creuada i preparació del lliurament amb documentació de suport.</p>
+                    <div class="validacio-step-role">Cap de projecte · 12h</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equip Section -->
+    <section class="equip" id="equip">
+        <div class="container">
+            <div class="equip-header">
+                <span class="section-label" style="color: var(--color-accent);">El nostre talent</span>
+                <h2 class="section-title section-title--light animate-on-scroll">Equip professional</h2>
+                <p class="section-description section-description--light animate-on-scroll" style="margin: 0 auto;">Professionals especialitzats que garanteixen l'excel·lència en cada fase del projecte.</p>
+            </div>
+            <div class="equip-grid">
+                <div class="equip-card animate-on-scroll">
+                    <div class="equip-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Dissenyadors gràfics</h3>
+                    <p>Especialistes en comunicació visual institucional amb experiència en administració pública i grans comptes.</p>
+                </div>
+                <div class="equip-card animate-on-scroll">
+                    <div class="equip-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Productors audiovisuals</h3>
+                    <p>Creadors de contingut vídeo, motion graphics i animació digital amb domini d'After Effects i Premiere.</p>
+                </div>
+                <div class="equip-card animate-on-scroll">
+                    <div class="equip-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+                    </div>
+                    <h3>Lingüistes</h3>
+                    <p>Filòlegs catalans titulats per la UB/UAB especialitzats en comunicació corporativa i institucional.</p>
+                </div>
+                <div class="equip-card animate-on-scroll">
+                    <div class="equip-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                    </div>
+                    <h3>Especialistes en senyalètica</h3>
+                    <p>Experts en sistemes de wayfinding i senyalització per a espais públics i equipaments culturals.</p>
+                </div>
+                <div class="equip-card animate-on-scroll">
+                    <div class="equip-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                    </div>
+                    <h3>Gestors de projectes</h3>
+                    <p>Coordinadors que garanteixen el compliment de terminis i la comunicació fluida amb l'Administració.</p>
+                </div>
+                <div class="equip-card animate-on-scroll">
+                    <div class="equip-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Especialistes digitals</h3>
+                    <p>Creadors de contingut per a xarxes socials, paid media i campanyes SEM amb coneixement de totes les plataformes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia Section -->
+    <section class="garantia">
+        <div class="container">
+            <div class="garantia-box animate-on-scroll">
+                <h2>Smart vol dir compromís</h2>
+                <p>Cada projecte passa per quatre fases de validació: creativa, tècnica, lingüística i final. Garantim correcció idiomàtica segons normativa IEC, adaptació impecable a qualsevol format i canal, i capacitat de resposta en 48 hores per a encàrrecs urgents. Treballem amb traçabilitat total perquè cada lliurament sigui exactament el que l'Administració necessita.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="assets/logos/logo-zoopa-footer.jpg" alt="Zoopa Studio">
+        </div>
+        <p class="footer-text">
+            Zoopa Studio — The Smart Studio<br>
+            <a href="https://zoopa.es" class="footer-link" target="_blank">zoopa.es</a>
+        </p>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
