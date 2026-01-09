@@ -201,13 +201,51 @@
         }
 
         .hero-logo {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        .hero-logo svg {
-            max-width: 600px;
+        .hero-logo img {
+            max-width: 420px;
             width: 100%;
             height: auto;
+            filter: invert(1);
+            opacity: 0.95;
+        }
+
+        .hero-tagline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tagline-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.01em;
+        }
+
+        .tagline-highlight {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-gold) 100%);
+            margin: 0 auto 2rem;
+            border-radius: 2px;
         }
 
         .hero-subtitle {
@@ -1049,10 +1087,15 @@
         <div class="hero-gradient"></div>
         <div class="hero-content">
             <div class="hero-logo animate-on-scroll">
-                <img src="assets/logos/logo_zoopa_smart_agency_v1.webp" alt="Zoopa - The Smart Agency" style="max-width: 500px; width: 100%; height: auto; filter: invert(1);">
+                <img src="assets/logos/logo_zoopa_smart_agency_v1.webp" alt="Zoopa - The Smart Agency">
             </div>
+            <div class="hero-tagline animate-on-scroll">
+                <span class="tagline-text">Disseny àgil.</span>
+                <span class="tagline-highlight">Català impecable.</span>
+            </div>
+            <div class="hero-divider animate-on-scroll"></div>
             <p class="hero-subtitle animate-on-scroll">
-                Flexibilitat, rapidesa i excel·lència. Disseny gràfic i producció multiformat amb rigor lingüístic per a institucions i administracions públiques.
+                Producció gràfica multiformat amb rigor lingüístic per a institucions públiques i administracions.
             </p>
             <div class="hero-stats animate-on-scroll">
                 <div class="hero-stat">
@@ -1065,11 +1108,11 @@
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-number">4</div>
-                    <div class="hero-stat-label">Fases validació</div>
+                    <div class="hero-stat-label">Fases de validació</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-number">100%</div>
-                    <div class="hero-stat-label">Rigor IEC</div>
+                    <div class="hero-stat-label">Normativa IEC</div>
                 </div>
             </div>
         </div>
@@ -1320,7 +1363,7 @@
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
                     </div>
                     <h3>Gestió centralitzada</h3>
-                    <p>Plataforma de gestió de projectes amb seguiment en temps real, control de versions i històric de canvis accessible pel client.</p>
+                    <p>Plataforma de gestió de projectes amb seguiment en temps real, control de versions i històric de canvis accessible per al client.</p>
                 </div>
                 <div class="metodologia-card animate-on-scroll">
                     <div class="metodologia-card-icon">
@@ -1557,7 +1600,7 @@
             <img src="assets/logos/logo-zoopa-footer.jpg" alt="Zoopa Studio">
         </div>
         <p class="footer-text">
-            Zoopa Studio — The Smart Studio<br>
+            Zoopa — The Smart Agency<br>
             <a href="https://zoopa.es" class="footer-link" target="_blank">zoopa.es</a>
         </p>
     </footer>
